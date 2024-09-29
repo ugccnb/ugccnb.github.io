@@ -1,0 +1,9 @@
+h1,
+h2 {
+  font-family: 'Arial', sans-serif;
+  color: #0056b3;
+}
+
+.language-switcher {
+  margin-top: 15px;
+}
