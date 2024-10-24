@@ -23,6 +23,9 @@ const translations = {
     'contact-details':
       'Email: holytrinityugcc@ucetec.org, contact@ugccnb.ca\nAddress: 52 Falkland Street, Moncton',
     footer: '© Holy Trinity Parish of Moncton',
+    formUrl: 'https://forms.gle/UMDVrN3ex64FCgYA6',
+    formTitle: 'Registration Form',
+    formAction: 'Register',
   },
   uk: {
     title: 'Ласкаво просимо до парафії Пресвятої Трійці у Монктоні',
@@ -47,6 +50,9 @@ const translations = {
     'contact-details':
       'Email: holytrinityugcc@ucetec.org, contact@ugccnb.ca\nАдреса: 52 Falkland Street, Moncton',
     footer: '© Парафія Пресвятої Трійці у Монктоні',
+    formUrl: 'https://forms.gle/UzHCsMVNCF77iKQg7',
+    formTitle: 'Реєстраційна форма',
+    formAction: 'Зареєструватися',
   },
   fr: {
     title: 'Bienvenue à la paroisse de la Sainte-Trinité de Moncton',
@@ -71,6 +77,9 @@ const translations = {
     'contact-details':
       'Email : holytrinityugcc@ucetec.org, contact@ugccnb.ca\nAdresse : 52 Falkland Street, Moncton',
     footer: '© Paroisse de la Sainte-Trinité de Moncton',
+    formUrl: 'https://forms.gle/nmt23iGc46ZF8PCW9',
+    formTitle: "Formulaire d'inscription",
+    formAction: "S'inscrire",
   },
 };
 
@@ -80,6 +89,16 @@ function changeLanguage(language) {
     const key = element.getAttribute('data-lang');
     element.textContent = translations[language][key];
   });
+
+  // Update the registration link based on the selected language
+  updateRegistrationLink(language);
+}
+
+// Add this function to update the registration link dynamically
+function updateRegistrationLink(language) {
+  const registrationLink = document.getElementById('registration-link');
+  registrationLink.textContent = translations[language].formAction; // Set the link text
+  registrationLink.href = translations[language].formUrl; // Set the link URL
 }
 
 // Event listeners for language switch buttons
@@ -92,3 +111,6 @@ document
 document
   .getElementById('fr')
   .addEventListener('click', () => changeLanguage('fr'));
+
+// Set the initial language on page load
+changeLanguage('en'); // Default language
